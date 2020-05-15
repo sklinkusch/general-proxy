@@ -1,12 +1,12 @@
 const axios = require("axios")
 
-exports.postData = async (req, res) => {
+exports.putData = async (req, res) => {
   try {
     const { server } = req.query
     const { headers, data } = req
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("Content-Type", "application/json")
-    const response = await axios({ method: "post", url: server, headers, data })
+    const response = await axios({ method: "put", url: server, headers, data })
     const { headers: responseHeaders, data: responseData } = await response
     return res.status(200).json(responseData)
   } catch (error) {
