@@ -6,7 +6,7 @@ exports.postData = async (req, res) => {
     const { headers, data } = req
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("Content-Type", "application/json")
-    const response = await axios({ method: "post", url: server, headers, data })
+    const response = await axios.post({ url: server, headers, data })
     const { headers: responseHeaders, data: responseData } = await response
     return res.status(200).json(responseData)
   } catch (error) {
