@@ -12,10 +12,12 @@ const {
   wrongArgType,
   checkAddress,
 } = require("./errors")
+const { getBody } = require("./middleware")
 
 app.use("/", (req, res, next) => serverInRequest(req, res, next))
 app.use("/", (req, res, next) => wrongArgType(req, res, next))
 app.use("/", (req, res, next) => checkAddress(req, res, next))
+app.use("/", (req, res, next) => getBody(req, res, next))
 app.get("/", (req, res) => getData(req, res))
 app.post("/", (req, res) => postData(req, res))
 app.put("/", (req, res) => putData(req, res))
