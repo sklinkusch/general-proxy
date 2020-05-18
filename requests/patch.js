@@ -6,12 +6,7 @@ exports.patchData = async (req, res) => {
     const { headers, data } = req
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("Content-Type", "application/json")
-    const response = await axios({
-      method: "patch",
-      url: server,
-      headers,
-      data,
-    })
+    const response = await axios.patch(server, headers, data)
     const { headers: responseHeaders, data: responseData } = await response
     return res.status(200).json(responseData)
   } catch (error) {
