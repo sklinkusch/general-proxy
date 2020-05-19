@@ -6,7 +6,7 @@ exports.deleteData = async (req, res) => {
     const { headers } = req
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("Content-Type", "application/json")
-    const response = await axios.delete(server, { headers })
+    const response = await axios.delete(server)
     const { headers: responseHeaders, data: responseData } = await response
     return res.status(200).json(responseData)
   } catch (error) {
