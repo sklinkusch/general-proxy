@@ -6,7 +6,7 @@ exports.getData = async (req, res) => {
     const { headers } = req
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("Content-Type", "application/json")
-    const response = await axios.get(server)
+    const response = await axios.get(server, { headers: headers })
     const { headers: responseHeaders, data: responseData } = await response
     return res.status(200).json(responseData)
   } catch (error) {
